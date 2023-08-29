@@ -1,3 +1,5 @@
+import Feed from "@components/Feed"
+
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
@@ -10,7 +12,7 @@ const Home = () => {
           MythicMuse is an AI prompting tool for tabletop RPG players to discover, create, share interesting character/npc creation prompts
         </p>
 
-        {/* Feed */}
+        <Feed />
     </section>
   )
 }
