@@ -36,7 +36,7 @@ const From = ({
           >
             Tag {' '}
             <span>
-              (#Warlock, #Baulder's Gate, #Critical Hit, ...)
+              (#warlock, #bauldersgate, #criticalhit, ...)
             </span>
           </span>
           <input
