@@ -1,3 +1,11 @@
+## Introduction
+This is a project aimed to enable fantasy tabletop game players to share interesting character/npc creation ideas.
+
+## Credit
+This project is inspired and built based on this tutorial: https://www.youtube.com/watch?v=wm5gMKuwSYk
+
+
+--------------------------------------------Default Generated Info-----------------------------------------------
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
