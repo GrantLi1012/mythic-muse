@@ -23,8 +23,23 @@ const Feed = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [posts, setPosts] = useState([]);
 
-  const handleSearchChange = (e) => {
+  const matchSearch = (post, value) => {
+    const username = post.creator.username;
+    const prompt = post.prompt;
+    const tag = post.tag;
+    const valueList = value.split(',').map(item => item.trim());
 
+    if (username === value) return true;
+    if (prompt.toLowerCase().includes(value.toLowerCase())) return true;
+    for (const valueItem of valueList) {
+      if (tag.includes(valueItem)) return true;
+    }
+    return false;
+  }
+
+  const handleSearchChange = (value) => {
+    setSearchText(value);
+    setPosts(allPosts.filter(post => matchSearch(post, value)));
   };
 
   const fetchPosts = async () => {
@@ -47,7 +62,7 @@ const Feed = () => {
           type='text'
           placeholder='Search for a tag or a username'
           value={searchText}
-          onChange={handleSearchChange}
+          onChange={(e) => handleSearchChange(e.target.value)}
           required
           className='search_input peer'
         />

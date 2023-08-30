@@ -36,13 +36,13 @@ const From = ({
           >
             Tag {' '}
             <span>
-              (#warlock, #bauldersgate, #criticalhit, ...)
+              (separate tags with comma, e.g. warlock, criticalhit, npc...)
             </span>
           </span>
           <input
             value={post.tag}
             onChange={(e)=>setPost({...post, tag: e.target.value})}
-            placeholder='#tag'
+            placeholder='tags'
             required
             className='form_input'
           />
