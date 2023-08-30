@@ -27,7 +27,7 @@ const Feed = () => {
     const username = post.creator.username;
     const prompt = post.prompt;
     const tag = post.tag;
-    const valueList = value.split(',').map(item => item.trim());
+    const valueList = value.split(',').map(item => item.trim()).filter(item => item !== '');
 
     if (username === value) return true;
     if (prompt.toLowerCase().includes(value.toLowerCase())) return true;
@@ -70,7 +70,7 @@ const Feed = () => {
 
       <PromptCardList
         data={posts}
-        handleTagClick={() => {}}
+        handleTagClick={(tag) => {handleSearchChange(tag)}}
       />
     </section>
   )
