@@ -47,10 +47,11 @@ export const DELETE = async ( req, {params} ) => {
         await Prompt.findByIdAndRemove(params.id);
         
         return new Response(
-            JSON.stringify(existingPrompt),
+            'Deleted prompt successfully',
             {status: 200}
         );
     } catch (error) {
+        console.log(error)
         return new Response('Failed to delete prompt', {status:500});
     }
 }
