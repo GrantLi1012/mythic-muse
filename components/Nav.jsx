@@ -25,11 +25,10 @@ const Nav = () => {
           src='/assets/images/logo.svg' 
           alt='logo' 
           width={30} 
-          height={30} 
-          style={{ filter: 'invert(100%)' }}
+          height={30}
           className='object-contain' 
         />
-        <p className='logo_text'>MythicMuse</p>
+        <p className='logo_text'><span className='purple_gradient'>MythicMuse</span></p>
       </Link>
 
       {/* Desktop nav (show on small size device or above) */}
