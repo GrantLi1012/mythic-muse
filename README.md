@@ -4,6 +4,11 @@ This is a project aimed to enable fantasy tabletop game players to share interes
 ## Credit
 This project is inspired and built based on this tutorial: https://www.youtube.com/watch?v=wm5gMKuwSYk
 
+## Features to come
+- Search by prompt, by tag, or by username
+- Click tag to auto search
+- View other people's profile by clicking name/profile pic
+
 
 --------------------------------------------Default Generated Info-----------------------------------------------
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
