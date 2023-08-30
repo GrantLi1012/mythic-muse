@@ -2,6 +2,8 @@
 
 import {useState, useEffect} from 'react';
 
+import Image from 'next/image';
+
 import PromptCard from './PromptCard';
 
 const PromptCardList = ({data, handleTagClick}) => {
@@ -60,18 +62,46 @@ const Feed = () => {
       <form className='relative w-full flex-center'>
         <input
           type='text'
-          placeholder='Search for a tag or a username'
+          placeholder='Search for tag, username, or content'
           value={searchText}
           onChange={(e) => handleSearchChange(e.target.value)}
           required
           className='search_input peer'
         />
+        { searchText && (
+          <div className='clear_btn ml-3 cursor-pointer opacity-40' 
+            onClick={() => {
+              setSearchText('');
+              setPosts(allPosts);
+            }}
+            title='Clear Input'
+          >
+            <Image 
+              src='/assets/icons/x.svg'
+              width={12}
+              height={12}
+              alt='x_icon'
+            />
+          </div>
+        )}
       </form>
-
-      <PromptCardList
-        data={posts}
-        handleTagClick={(tag) => {handleSearchChange(tag)}}
-      />
+      {
+        searchText === '' ? (
+          <PromptCardList
+            data={posts}
+            handleTagClick={(tag) => {handleSearchChange(tag)}}
+          />
+        ) : (
+          <div className='mt-16'>
+            <span className='font-inter text-md text-gray-500'>{
+              posts.length === 0
+              ? "No results matching, try a different search text"
+              : "Loading..."
+            }</span>
+          </div>
+        )
+      }
+      
     </section>
   )
 }
