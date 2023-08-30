@@ -69,7 +69,7 @@ const Feed = () => {
           className='search_input peer'
         />
         { searchText && (
-          <div className='clear_btn ml-3 cursor-pointer opacity-40' 
+          <div className='clear_btn ml-5 cursor-pointer opacity-40' 
             onClick={() => {
               setSearchText('');
               setPosts(allPosts);
@@ -87,16 +87,23 @@ const Feed = () => {
       </form>
       {
         searchText === '' ? (
-          <PromptCardList
-            data={posts}
-            handleTagClick={(tag) => {handleSearchChange(tag)}}
-          />
+          allPosts.length === 0 
+          ? <div className='mt-10'>
+              <span className='font-inter text-md text-gray-500'>Loading posts...</span>
+            </div> 
+          : <PromptCardList
+              data={posts}
+              handleTagClick={(tag) => {handleSearchChange(tag)}}
+            />
         ) : (
-          <div className='mt-16'>
+          <div>
             <span className='font-inter text-md text-gray-500'>{
               posts.length === 0
               ? "No results matching, try a different search text"
-              : "Loading..."
+              : <PromptCardList
+                  data={posts}
+                  handleTagClick={(tag) => {handleSearchChange(tag)}}
+                />
             }</span>
           </div>
         )
