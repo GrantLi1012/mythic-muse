@@ -12,10 +12,13 @@ const handler = NextAuth({
     ],
     callbacks: {
         async session({ session }) {
+            console.log('[debug] session called');
+            await connectToDB();
+            
             const sessionUser = await User.findOne({
                 email: session.user.email
             });
-    
+            console.log('[debug] session user: ' + JSON.stringify(sessionUser))
             session.user.id = sessionUser._id.toString();
     
             return session;
