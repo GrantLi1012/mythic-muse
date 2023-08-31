@@ -14,6 +14,7 @@ export const GET = async (req, { params }) => {
             {status: 200}
         );
     } catch (error) {
+        console.log(error);
         return new Response('Failed to fetch prompt', {status:500});
     }
 }
@@ -37,6 +38,7 @@ export const PATCH = async ( req, {params} ) => {
             {status: 200}
         );
     } catch (error) {
+        console.log(error);
         return new Response('Failed to update prompt', {status:500});
     }
 }
